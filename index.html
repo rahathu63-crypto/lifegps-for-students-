@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LifeGPS for Students - Navigate Your Future with AI Precision</title>
+  <meta name="description" content="LifeGPS for Students is an AI-powered platform helping students explore careers, design skill roadmaps, find scholarships, set goals, and receive customized career mentoring.">
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta property="og:title" content="LifeGPS for Students">
+  <meta property="og:description" content="Navigate your future with AI precision. Discover careers, scholarships, and plan your goals.">
+  <meta property="og:type" content="website">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Floating Particle Background -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Futuristic Navigation Bar -->
+  <header id="main-header">
+    <nav class="navbar">
+      <a href="#hero" class="logo" id="nav-logo">
+        <span>◿</span> LifeGPS
+      </a>
+      
+      <ul class="nav-links" id="nav-menu">
+        <li><a href="#hero" id="link-hero">Home</a></li>
+        <li><a href="#careers" id="link-careers">Careers</a></li>
+        <li><a href="#ai-core" id="link-ai">AI Core</a></li>
+        <li><a href="#scholarships" id="link-scholarships">Scholarships</a></li>
+        <li><a href="#goals" id="link-goals">Goal Tracker</a></li>
+      </ul>
+
+      <button class="nav-toggle" id="nav-hamburger" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-background"></div>
+    <div class="hero-content">
+      <h1 class="hero-title" id="hero-main-title">LifeGPS for Students</h1>
+      <p class="hero-subtitle" id="hero-sub-title">Navigate Your Future with AI Precision</p>
+      
+      <div class="hero-cta">
+        <a href="#ai-core" class="btn-futuristic btn-blue" id="btn-hero-quiz">
+          <span>⚙</span> Scan Career Path
+        </a>
+        <a href="#careers" class="btn-futuristic btn-orange" id="btn-hero-explore">
+          <span>▲</span> Explore Careers
+        </a>
+      </div>
+
+      <!-- Futuristic pillars overlay aligned with image boxes -->
+      <div class="hero-pillars">
+        <div class="glass-panel pillar-card know-yourself" onclick="scrollToSection('ai-core')">
+          <div class="pillar-icon">🎯</div>
+          <h3>Know Yourself</h3>
+          <p>Discover your strengths, interests, and personality.</p>
+        </div>
+        <div class="glass-panel pillar-card plan-future" onclick="scrollToSection('goals')">
+          <div class="pillar-icon">📈</div>
+          <h3>Plan Your Future</h3>
+          <p>Get personalized roadmaps and goal tracking.</p>
+        </div>
+        <div class="glass-panel pillar-card right-guidance" onclick="scrollToSection('ai-core')">
+          <div class="pillar-icon">🧭</div>
+          <h3>Right Guidance</h3>
+          <p>Expert simulated AI advice to navigate career choices.</p>
+        </div>
+        <div class="glass-panel pillar-card achieve-success" onclick="scrollToSection('scholarships')">
+          <div class="pillar-icon">🏆</div>
+          <h3>Achieve Success</h3>
+          <p>Stay on track and turn your dreams into achievements.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Down Icon -->
+    <a href="#careers" class="scroll-indicator" id="hero-scroll-btn">
+      <span>EXPLORE PATHWAYS</span>
+      <svg viewBox="0 0 24 24">
+        <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Career Explorer Section -->
+  <section id="careers" class="section-container reveal-on-scroll">
+    <h2 class="section-title">Career Explorer</h2>
+    
+    <div class="careers-grid" id="career-grid-container">
+      
+      <!-- Doctor Card -->
+      <div class="career-card doctor" data-career="doctor">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">🩺</div>
+          <span class="career-tag">Medical Science</span>
+          <h3>Doctor</h3>
+          <p class="career-desc">Save lives, diagnose complex diseases, and work on medical breakthroughs at the cutting-edge of healthcare.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+      
+      <!-- Engineer Card -->
+      <div class="career-card engineer" data-career="engineer">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">⚙️</div>
+          <span class="career-tag">Technology & Systems</span>
+          <h3>Engineer</h3>
+          <p class="career-desc">Design physical architectures or digital systems. Master coding, structural mechanics, or advanced robotics.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+      <!-- Teacher Card -->
+      <div class="career-card teacher" data-career="teacher">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">📖</div>
+          <span class="career-tag">Education & Growth</span>
+          <h3>Teacher</h3>
+          <p class="career-desc">Inspire minds, develop curricula, and foster critical thinking as a mentor to the next generation of global leaders.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+      <!-- Scientist Card -->
+      <div class="career-card scientist" data-career="scientist">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">🧪</div>
+          <span class="career-tag">Scientific Research</span>
+          <h3>Scientist</h3>
+          <p class="career-desc">Formulate hypotheses, experiment in lab conditions, and discover scientific facts about the universe, biology, or quantum realms.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+      <!-- Chartered Accountant Card -->
+      <div class="career-card ca" data-career="ca">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">📈</div>
+          <span class="career-tag">Finance & Audit</span>
+          <h3>Chartered Accountant</h3>
+          <p class="career-desc">Oversee corporate finances, taxes, audits, and provide vital strategic advisory to secure financial health and scaling.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+      <!-- Entrepreneur Card -->
+      <div class="career-card entrepreneur" data-career="entrepreneur">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">🚀</div>
+          <span class="career-tag">Business & Innovation</span>
+          <h3>Entrepreneur</h3>
+          <p class="career-desc">Establish startups, develop business systems, raise funds, and scale disruptive products that change people's lives.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+      <!-- Artist Card -->
+      <div class="career-card artist" data-career="artist">
+        <div class="career-card-bg" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=500&q=80')"></div>
+        <div class="career-card-overlay"></div>
+        <div class="career-card-content">
+          <div class="career-icon-wrapper">🎨</div>
+          <span class="career-tag">Creative Arts</span>
+          <h3>Artist</h3>
+          <p class="career-desc">Create visual masterworks, digital graphics, music, or design elements that influence culture and evoke emotion.</p>
+          <span class="career-action">Deconstruct Path ➔</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Career Detail Modal (Deconstructed Path) -->
+  <div class="modal-overlay" id="career-modal">
+    <div class="glass-panel modal-content" id="modal-container">
+      <button class="modal-close" id="modal-close-btn">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-header-icon" id="m-icon">🩺</div>
+        <div class="modal-header-title">
+          <h2 id="m-title">Doctor</h2>
+          <span class="career-tag" id="m-tag">Medical Science</span>
+        </div>
+      </div>
+
+      <div class="modal-grid">
+        <div class="modal-left">
+          <h3>Career Roadmaps</h3>
+          <div class="roadmap-timeline" id="m-roadmap">
+            <!-- Timeline items injected by JS -->
+          </div>
+        </div>
+        
+        <div class="modal-right">
+          <h3>Skill Blueprint</h3>
+          <div class="skill-list" id="m-skills">
+            <!-- Skill progress bars injected by JS -->
+          </div>
+
+          <div class="stat-box">
+            <h4>Average Base Salary</h4>
+            <p id="m-salary">$120,000 / Year</p>
+          </div>
+          
+          <div class="stat-box" style="margin-top: 15px;">
+            <h4>Projected Growth (10 yr)</h4>
+            <p id="m-growth" style="color: var(--accent-blue);">+15% (High)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Core Section (Quiz & Interactive Advisor Chat) -->
+  <section id="ai-core" class="section-container reveal-on-scroll">
+    <h2 class="section-title">AI Core Command</h2>
+    
+    <div class="ai-section-grid">
+      
+      <!-- Left Column: Career quiz panel -->
+      <div class="glass-panel quiz-container glow-blue" id="quiz-panel">
+        <div class="quiz-progress-bar" id="quiz-progress"></div>
+        
+        <!-- Slide 0: Start Screen -->
+        <div class="quiz-slide active" id="slide-start">
+          <h3>AI Career Scan</h3>
+          <p style="color: var(--text-muted); margin-bottom: 30px; line-height: 1.6;">
+            Assess your alignment with different fields through our upgraded 10-question profiler. The engine analyzes your choices across subjects, strengths, risk tolerance, and values to map your top match.
+          </p>
+          <button class="btn-futuristic btn-blue" id="btn-start-quiz">Initialize Scan</button>
+        </div>
+
+        <!-- Slide 1: Question 1 -->
+        <div class="quiz-slide" data-question="0">
+          <h3>Q1: In your ideal project, you prefer...</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>Building code or designing software systems</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>Helping people face-to-face or mentoring others</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="creative">
+              <span>Creating visual art, music, or graphics</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="business">
+              <span>Pitching a brand or organizing financials</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 2: Question 2 -->
+        <div class="quiz-slide" data-question="1">
+          <h3>Q2: Which subject elements appeal to you most?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="finance">
+              <span>Mathematics, audits, taxes, and accounting ledger sheets</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>Biology, chemical formulas, and human anatomy</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="creative">
+              <span>Design theories, digital media, and fine arts</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>Literature, psychology, and public speaking</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 3: Question 3 -->
+        <div class="quiz-slide" data-question="2">
+          <h3>Q3: What role do you naturally assume in group work?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>The technical troubleshooter and systems builder</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>The empathetic moderator, checking in on team health</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="creative">
+              <span>The creative designer, making sure things look stunning</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="business">
+              <span>The strategic coordinator, delegate, and milestone manager</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 4: Question 4 -->
+        <div class="quiz-slide" data-question="3">
+          <h3>Q4: How do you approach complex, unstructured challenges?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>Build sandbox prototype compilers and test layouts</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>Search for peer-reviewed science journals and data</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="business">
+              <span>Pitch quick solutions, raise support, and pivot quickly</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="finance">
+              <span>Establish detailed audits and regulations to reduce risks</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 5: Question 5 -->
+        <div class="quiz-slide" data-question="4">
+          <h3>Q5: Which future workspace matches your ideal vision?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="science">
+              <span>A clinical lab, research center, or hospital clinic</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="tech">
+              <span>A high-tech terminal, software hub, or systems network</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>A vibrant seminar room, classroom, or coaching center</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="finance">
+              <span>A professional accounting office or corporate boardroom</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 6: Question 6 -->
+        <div class="quiz-slide" data-question="5">
+          <h3>Q6: What is your primary driver for a career legacy?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>Registering engineering patents and designing digital platforms</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>Discovering scientific laws or saving patient lives directly</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>Inspiring young scholars and building learning systems</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="finance">
+              <span>Maintaining financial trust and corporate audit transparency</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 7: Question 7 -->
+        <div class="quiz-slide" data-question="6">
+          <h3>Q7: What type of online content do you read for fun?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>Software repositories, coding challenges, and tech reviews</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>Space exploration updates, biotech, and medical reports</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="business">
+              <span>Founder memoirs, business indices, and marketing campaigns</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="creative">
+              <span>Creative arts journals, portfolio galleries, and music reviews</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 8: Question 8 -->
+        <div class="quiz-slide" data-question="7">
+          <h3>Q8: What is your greatest cognitive strength?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="finance">
+              <span>A high capacity for quantitative precision and math variables</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="creative">
+              <span>Intuitive design and visual concept generation</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>Systematic analytical deduction and experimentation</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="tech">
+              <span>Logical syntax building and hardware/software debugging</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 9: Question 9 -->
+        <div class="quiz-slide" data-question="8">
+          <h3>Q9: How do you feel about high-stakes risk and uncertainty?</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="business">
+              <span>I thrive on risks, ready to pivot to capture high upsides</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="finance">
+              <span>I prefer audit frameworks to minimize risk and create stability</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>I analyze peer-reviewed stats before making key decisions</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>I base decisions on user empathy and collective agreement</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 10: Question 10 -->
+        <div class="quiz-slide" data-question="9">
+          <h3>Q10: If you could invent something tomorrow, it would be:</h3>
+          <div class="options-grid">
+            <button class="option-button" data-val="tech">
+              <span>An automated compiler converting layouts to secure code</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="science">
+              <span>A customized clinical therapy treating chronic conditions</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="social">
+              <span>A digital ed-tech learning classroom connecting communities</span>
+              <span class="option-bullet"></span>
+            </button>
+            <button class="option-button" data-val="business">
+              <span>A global supply chain token tracking business shipments</span>
+              <span class="option-bullet"></span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Slide 11: Results Screen -->
+        <div class="quiz-slide results-panel" id="slide-results">
+          <h3>AI Path Matching</h3>
+          <div class="results-grid" id="results-bar-container">
+            <!-- Dynamically populated matches -->
+          </div>
+          
+          <!-- Detailed Advisory Brief Injected Here -->
+          <div class="quiz-advisor-brief" id="quiz-advisory-brief-panel" style="display: none;">
+            <h4 id="brief-title">Personalized Career Advisory</h4>
+            <div class="brief-block">
+              <strong>Why You Match:</strong>
+              <p id="brief-why">Loading diagnostic parameters...</p>
+            </div>
+            <div class="brief-block">
+              <strong>Required Skills:</strong>
+              <p id="brief-skills">Loading core metrics...</p>
+            </div>
+            <div class="brief-block">
+              <strong>Education Pathway:</strong>
+              <p id="brief-pathway">Loading university steps...</p>
+            </div>
+            <div class="brief-block">
+              <strong>Future Opportunities:</strong>
+              <p id="brief-opps">Loading career orbit projections...</p>
+            </div>
+          </div>
+          
+          <button class="btn-futuristic btn-blue" id="btn-restart-quiz" style="margin-top: 25px;">Recalibrate Scan</button>
+        </div>
+
+        <!-- Quiz Navigation Footer -->
+        <div class="quiz-footer" id="quiz-control-footer" style="display: none;">
+          <button class="btn-futuristic btn-blue" id="btn-quiz-prev" style="padding: 8px 18px;">Back</button>
+          <button class="btn-futuristic btn-orange-filled" id="btn-quiz-next" style="padding: 8px 18px;" disabled>Next</button>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive AI Advisor terminal -->
+      <div class="glass-panel chat-container glow-orange" id="chat-panel">
+        <div class="chat-header">
+          <div class="chat-status-dot"></div>
+          <h3>LifeGPS Advisor Core</h3>
+        </div>
+        
+        <div class="chat-messages" id="chat-display">
+          <div class="chat-message message-ai">
+            <strong>System:</strong> LifeGPS connection active. How can I help map your academic or career trajectory today? Type a question below.
+          </div>
+        </div>
+        
+        <div class="chat-input-area">
+          <input type="text" class="chat-input" id="chat-input-field" placeholder="Ask about salaries, study roadmaps, skills..." autocomplete="off">
+          <button class="btn-chat-send" id="btn-chat-send-msg" aria-label="Send Message">
+            <svg viewBox="0 0 24 24">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Scholarship Finder Section -->
+  <section id="scholarships" class="section-container reveal-on-scroll">
+    <h2 class="section-title">Scholarship Finder</h2>
+    
+    <!-- Controls (Search + Filters) -->
+    <div class="finder-controls">
+      <div class="search-wrapper">
+        <input type="text" class="search-input" id="scholarship-search" placeholder="Search by name, provider, or keyword...">
+      </div>
+      
+      <select class="filter-select" id="scholarship-filter-domain">
+        <option value="all">All Fields</option>
+        <option value="medical">Medical / Health</option>
+        <option value="engineering">Engineering / Tech</option>
+        <option value="creative">Arts & Design</option>
+        <option value="business">Business & Finance</option>
+      </select>
+      
+      <select class="filter-select" id="scholarship-filter-class">
+        <option value="all">All Grades</option>
+        <option value="class-9-10">Grade 9-10</option>
+        <option value="class-11-12">Grade 11-12</option>
+        <option value="undergrad">Undergrad</option>
+      </select>
+
+      <select class="filter-select" id="scholarship-filter-stream">
+        <option value="all">All Streams</option>
+        <option value="science">Science</option>
+        <option value="commerce">Commerce</option>
+        <option value="arts">Arts</option>
+      </select>
+
+      <select class="filter-select" id="scholarship-filter-amount">
+        <option value="all">All Amounts</option>
+        <option value="high">$10,000+</option>
+        <option value="mid">$5,000 - $9,999</option>
+        <option value="low">Under $5,000</option>
+      </select>
+    </div>
+
+    <!-- Scholarship List -->
+    <div class="scholarships-grid" id="scholarship-list-container">
+      <!-- Scholarship cards dynamically managed in JS -->
+    </div>
+  </section>
+
+  <!-- Goal Tracker Section -->
+  <section id="goals" class="section-container reveal-on-scroll">
+    <h2 class="section-title">Goal Tracker Dashboard</h2>
+    
+    <div class="goals-dashboard">
+      
+      <!-- Left Column: Add Goal Card -->
+      <div class="glass-panel goals-creator glow-orange">
+        <h3>Create Target Trajectory</h3>
+        <form class="goal-form" id="create-goal-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label for="goal-title">Goal Title</label>
+            <input type="text" class="form-input" id="goal-title" placeholder="e.g. Master ReactJS, Prepare for SAT..." required>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="goal-category">Category</label>
+              <select class="form-input" id="goal-category">
+                <option value="career">Career Roadmap</option>
+                <option value="academic">Academic Prep</option>
+                <option value="skills">Skill Development</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="goal-date">Target Date</label>
+              <input type="date" class="form-input" id="goal-date" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Roadmap Milestones</label>
+            <div class="milestones-input-list" id="milestones-inputs">
+              <div class="milestone-input-row">
+                <input type="text" class="form-input milestone-text-field" placeholder="Milestone 1 (e.g. Complete foundational course)" required style="flex-grow: 1;">
+              </div>
+            </div>
+            <button type="button" class="btn-add-milestone" id="btn-add-milestone-field">+ Add Milestone Step</button>
+          </div>
+
+          <button type="submit" class="btn-futuristic btn-orange-filled" id="btn-submit-goal" style="width: 100%; margin-top: 10px;">
+            Deploy Goal Path
+          </button>
+        </form>
+      </div>
+
+      <!-- Right Column: Active Goals Dashboard -->
+      <div class="goals-list-container" id="active-goals-list">
+        <!-- Goal elements managed by JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="section-container" style="padding: 40px 0; margin-bottom: 0;">
+      
+      <!-- Collapsible FAQ Accordion Section inside Footer -->
+      <div class="faq-section">
+        <h3 class="faq-title">Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>How does the AI Career Scan determine matching percentages?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-panel">
+             <p>Our client-side profiling engine processes your choices across 10 distinct cognitive dimensions (interests, subjects, strengths, environments, and goals), mapping them to weighted profiles of Doctor, Engineer, Chartered Accountant, Scientist, Artist, Teacher, and Entrepreneur, producing a normalized fit percentage.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Are these career roadmaps applicable globally?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-panel">
+            <p>Yes. The roadmaps are structured across 4 distinct phases (from High School at age 13 to professional mastery) and incorporate universal academic benchmarks, licensure standards, and industry trajectories suitable for global markets.</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Is my Goal Tracker data stored securely?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-panel">
+            <p>Absolutely. All your custom goals, timeline milestones, and checklist parameters are stored locally on your machine via HTML5 LocalStorage. No data is transmitted to external cloud systems, maintaining 100% data privacy.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger">
+            <span>Can I apply for scholarships directly from here?</span>
+            <span class="faq-icon">▼</span>
+          </button>
+          <div class="faq-panel">
+            <p>The Scholarship Finder helps you search and match awards. Clicking "Apply Securely" connects you to the secure redirection pathway to verify your credentials against respective program registries.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Footer Columns -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-top: 60px; border-top: 1px solid var(--glass-border); padding-top: 40px;">
+        <div>
+          <h4 style="margin-bottom: 15px; color: var(--accent-blue);">About LifeGPS</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5;">
+            LifeGPS is a next-generation academic navigator designed for students aged 13-18. We combine interactive profiling scanners, class/stream-based scholarship indexes, and persistent trajectory trackers to help you map your future with technical precision.
+          </p>
+        </div>
+        
+        <div>
+          <h4 style="margin-bottom: 15px; color: var(--accent-orange);">Resources</h4>
+          <ul style="list-style: none; padding: 0; font-size: 0.8rem; line-height: 2;">
+            <li><a href="#careers" style="color: var(--text-muted); text-decoration: none;">Career Roadmap Directory</a></li>
+            <li><a href="#ai-core" style="color: var(--text-muted); text-decoration: none;">AI Core Scan</a></li>
+            <li><a href="#scholarships" style="color: var(--text-muted); text-decoration: none;">Scholarship Catalogs</a></li>
+            <li><a href="#goals" style="color: var(--text-muted); text-decoration: none;">Goal Tracker</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 15px; color: var(--accent-blue);">Contact Core</h4>
+          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin-bottom: 10px;">
+            Have inquiries or registry questions? Reach out to our operations team:
+          </p>
+          <a href="mailto:support@lifegps.edu" style="color: var(--accent-blue); text-decoration: none; font-size: 0.85rem; font-family: 'Orbitron', sans-serif;">support@lifegps.edu</a>
+        </div>
+
+        <div>
+          <h4 style="margin-bottom: 15px; color: var(--accent-orange);">Connect Orbits</h4>
+          <div style="display: flex; gap: 15px; margin-top: 10px;">
+            <!-- Social links styled like glowing icons -->
+            <a href="#" style="color: var(--text-main); text-decoration: none; font-size: 1.2rem; transition: var(--transition-fast);" onclick="alert('Connecting to LinkedIn orbital handle...'); return false;">💼</a>
+            <a href="#" style="color: var(--text-main); text-decoration: none; font-size: 1.2rem; transition: var(--transition-fast);" onclick="alert('Connecting to GitHub registry handle...'); return false;">💻</a>
+            <a href="#" style="color: var(--text-main); text-decoration: none; font-size: 1.2rem; transition: var(--transition-fast);" onclick="alert('Connecting to YouTube stream handle...'); return false;">📺</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 40px; border-top: 1px solid var(--glass-border); padding-top: 20px; font-size: 0.75rem; color: var(--text-muted);">
+        &copy; 2026 LifeGPS. Built for high-school competition. Navigating career orbits with client-side AI precision.
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Application Logic -->
+  <script src="js/app.js"></script>
+</body>
+</html>
